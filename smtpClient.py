@@ -1,6 +1,6 @@
 from socket import *
-client = "<trishala@gmail.com>"
-Server = "<arbritrary@gmail.com>"
+client_email = "<trishala@gmail.com>"
+Server_email = "<arbritrary@gmail.com>"
 
 def smtp_client(port=1025, mailserver='127.0.0.1'):
     msg = "\r\n My message"
@@ -28,7 +28,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     #    print('250 reply not received from server.')
 
     # Send MAIL FROM command and handle server response.
-    mailFrom = 'MAIL FROM:' + client + '\r\n'
+    mailFrom = 'MAIL FROM:' + client_email + '\r\n'
     clientSocket.send(mailFrom.encode())
     recv2 = clientSocket.recv(1024).decode()
     # if recv2[:3] != '250':
@@ -37,7 +37,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in end
 
     # Send RCPT TO command and handle server response.
-    Rcpt = 'RCPT TO:' + Server + '\r\n'
+    Rcpt = 'RCPT TO:' + Server_email + '\r\n'
     clientSocket.send(Rcpt.encode())
     recv3 = clientSocket.recv(1024).decode()
     # if recv3[:3] != '250':
